@@ -7,10 +7,6 @@ import (
 
 func checkOkMbid(mbid string) (ok bool, err error) {
 
-	fmt.Println("     ")
-	fmt.Printf("the mbid I got was %s", mbid)
-	fmt.Println("     ")
-
 	if len(mbid)!=36{
 		return false, fmt.Errorf("Submitted mbid has the wrong format")
 	}

@@ -19,7 +19,6 @@ func MusicInfo(w http.ResponseWriter, r *http.Request) {
 	var summary Summary
 
 	if ok, err := checkOkMbid(mbid); !ok || (err != nil) {
-		fmt.Println("sending bad request 400")
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
@@ -29,7 +28,6 @@ func MusicInfo(w http.ResponseWriter, r *http.Request) {
 	//fmt.Printf("%+v", artistInfo)
 	if err != nil {
 		log.Print(err)
-		fmt.Println("sending 404")
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
