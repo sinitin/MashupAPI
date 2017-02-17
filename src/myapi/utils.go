@@ -93,18 +93,18 @@ type AlbumResponse struct {
 
 type ArtistInfo struct {
 	Area struct {
-		     Disambiguation   string   `json:"disambiguation"`
-		     ID               string   `json:"id"`
-		     Iso_3166_1_codes []string `json:"iso-3166-1-codes"`
-		     Name             string   `json:"name"`
-		     Sort_name        string   `json:"sort-name"`
-	     } `json:"area"`
+		Disambiguation   string   `json:"disambiguation"`
+		ID               string   `json:"id"`
+		Iso_3166_1_codes []string `json:"iso-3166-1-codes"`
+		Name             string   `json:"name"`
+		Sort_name        string   `json:"sort-name"`
+	} `json:"area"`
 	BeginArea struct {
-		     Disambiguation string `json:"disambiguation"`
-		     ID             string `json:"id"`
-		     Name           string `json:"name"`
-		     Sort_name      string `json:"sort-name"`
-	     } `json:"begin_area"`
+		Disambiguation string `json:"disambiguation"`
+		ID             string `json:"id"`
+		Name           string `json:"name"`
+		Sort_name      string `json:"sort-name"`
+	} `json:"begin_area"`
 	Country        string        `json:"country"`
 	Disambiguation string        `json:"disambiguation"`
 	EndArea        interface{}   `json:"end_area"`
@@ -114,14 +114,14 @@ type ArtistInfo struct {
 	Ipis           []interface{} `json:"ipis"`
 	Isnis          []string      `json:"isnis"`
 	Life_span      struct {
-		     Begin string `json:"begin"`
-		     End   string `json:"end"`
-		     Ended bool   `json:"ended"`
-	     } `json:"life-span"`
-	Name      string `json:"name"`
-	Relations []Relation `json:"relations"`
+		Begin string `json:"begin"`
+		End   string `json:"end"`
+		Ended bool   `json:"ended"`
+	} `json:"life-span"`
+	Name           string         `json:"name"`
+	Relations      []Relation     `json:"relations"`
 	Release_groups []ReleaseGroup `json:"release-groups"`
-	Sort_name string `json:"sort-name"`
-	Type      string `json:"type"`
-	Type_id   string `json:"type-id"`
+	Sort_name      string         `json:"sort-name"`
+	Type           string         `json:"type"`
+	Type_id        string         `json:"type-id"`
 }

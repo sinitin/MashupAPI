@@ -1,13 +1,13 @@
 package main
 
 import (
-	"regexp"
 	"fmt"
+	"regexp"
 )
 
 func checkOkMbid(mbid string) (ok bool, err error) {
 
-	if len(mbid)!=36{
+	if len(mbid) != 36 {
 		return false, fmt.Errorf("Submitted mbid has the wrong format")
 	}
 
