@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func getJson(url string, target interface{}) (error) {
+func getJson(url string, target interface{}) error {
 
 	//fmt.Printf("Hello, the URL I go was: %s", url)
 
