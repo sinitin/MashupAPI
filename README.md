@@ -36,9 +36,9 @@ Try it out with curl:
 ##Limitations/left to do:
 
 ###Logging:
--log levels
+- log levels
 
 ###Testing and testability:
--unit tests should cover corner cases
--load testing
--refactoring to make unit testing easier
+- unit tests should cover corner cases
+- load testing
+- refactoring to make unit testing easier
