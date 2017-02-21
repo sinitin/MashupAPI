@@ -25,7 +25,6 @@ func MusicInfo(w http.ResponseWriter, r *http.Request) {
 
 	//check if the artist exists and pick up the albums
 	artistInfo, err := getArtistInfo(mbid)
-	//fmt.Printf("%+v", artistInfo)
 	if err != nil {
 		log.Print(err)
 		w.WriteHeader(http.StatusNotFound)

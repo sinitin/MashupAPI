@@ -9,8 +9,6 @@ import (
 
 func getJson(url string, target interface{}) error {
 
-	//fmt.Printf("Hello, the URL I go was: %s", url)
-
 	var myClient = &http.Client{Timeout: 10 * time.Second}
 
 	r, err := myClient.Get(url)
@@ -41,21 +39,6 @@ func asyncHttpGets(input []AlbumInput) ([]*AlbumResponse, error) {
 			ch <- &AlbumResponse{resp, err, title, id, *coverArt}
 		}(url, id, title)
 	}
-
-	/*for {
-		select {
-		case r := <-ch:
-			fmt.Println("Got at cover!!!")
-			responses = append(responses, r)
-			if len(responses) == len(input) {
-				return responses
-			}
-		case <-time.After(50 * time.Millisecond):
-			fmt.Printf(".")
-		}
-	}
-
-	return responses*/
 
 	timeout := time.After(10000 * time.Millisecond)
 
