@@ -23,6 +23,22 @@ func MusicInfo(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	//check if we already have the cashed data
+	if err := RepoCheckMbid(mbid); err == nil {
+		summary = RepoGetSummary(mbid)
+
+		//fmt.Println("     Yaaaay found data in cache    ")
+
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(http.StatusOK)
+		if err := json.NewEncoder(w).Encode(summary); err != nil {
+			panic(err)
+		}
+
+		return
+
+	}
+
 	//check if the artist exists and pick up the albums
 	artistInfo, err := getArtistInfo(mbid)
 	if err != nil {
@@ -51,6 +67,8 @@ func MusicInfo(w http.ResponseWriter, r *http.Request) {
 		log.Print(err)
 		w.WriteHeader(http.StatusNotFound)
 	}*/
+
+	RepoAddSummary(summary)
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)

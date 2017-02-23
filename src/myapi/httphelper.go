@@ -5,18 +5,27 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+	"log"
 )
 
 func getJson(url string, target interface{}) error {
 
-	var myClient = &http.Client{Timeout: 10 * time.Second}
+	client := &http.Client{}
 
-	r, err := myClient.Get(url)
+	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		return err
+		log.Fatalln(err)
 	}
+
+	req.Header.Set("User-Agent", "myapi/3.0 ( sini.tinfors@gmail.com )")
+
+	r, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	if r.StatusCode != http.StatusOK {
-		return fmt.Errorf("Unexpected http response code, got: %d expected: 200", r.StatusCode)
+		return fmt.Errorf("Unexpected response code, got: %d expected: 200, for url %s", r.StatusCode, url)
 	}
 	defer r.Body.Close()
 
